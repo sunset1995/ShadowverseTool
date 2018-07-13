@@ -1,0 +1,2 @@
+# ShadowverseTool
+Shadowverse tool [WIP]
