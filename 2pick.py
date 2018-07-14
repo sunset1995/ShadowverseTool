@@ -28,8 +28,12 @@ def go_2pick():
 def go_entrance():
     entrace_temp = util.read_template('templates', '2pick', 'entrance.png')
     useticket_temp = util.read_template('templates', '2pick', 'use_ticket.png')
+    noticket_temp = util.read_template('templates', '2pick', 'no_tickets.png')
     while not util.check_existed(screenshotter, useticket_temp):
         util.find_and_click(screenshotter, entrace_temp)
+        if util.check_existed(screenshotter, noticket_temp):
+            return False
+    return True
 
 def go_useticket():
     useticket_temp = util.read_template('templates', '2pick', 'use_ticket.png')
@@ -80,10 +84,12 @@ def go_goback():
     while not util.check_existed(screenshotter, arena_temp):
         util.find_and_click(screenshotter, goback_temp)
 
-for i in range(20):
+while True:
     go_arena()
     go_2pick()
-    go_entrance()
+    if not go_entrance():
+        print('No tickets left !!')
+        break
     go_useticket()
     go_getin()
     go_character()
