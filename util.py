@@ -17,6 +17,8 @@ class ScreenShotter:
             target=self._screenshot_worker, daemon=True
         )
         worker.start()
+        while self.pil_img is None:
+            time.sleep(0.3)
 
     def _screenshot_worker(self):
         '''
