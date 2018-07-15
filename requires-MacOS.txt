@@ -1,0 +1,7 @@
+opencv-python
+mss
+Pillow
+numpy
+pyobjc-core
+pyobjc
+pyautogui
